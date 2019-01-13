@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MedicaAI.Views.DatosPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="BtnGuardar" Text="Guardar" Icon="guardar" Clicked="BtnGuardar_Click" Order="Primary"/>
+        <ToolbarItem x:Name="BtnEliminar" Text="Eliminar" Icon="eliminar" Clicked="BtnEliminar_Click" Order="Primary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                BindingContext="{Binding DatosModel}"
+                Padding="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label 
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        Text="Gender?">
+                    </Label>
+                    <Picker 
+                        Grid.ColumnSpan="2"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        x:Name="gender" 
+                        SelectedIndex="{Binding Gender}"
+                        SelectedItem="{Binding GenderSt}">
+                    </Picker>
+
+                    <Label 
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        Text="Age Range?">
+                    </Label>
+                    <Picker 
+                        Grid.ColumnSpan="2"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        x:Name="ageRange" 
+                        SelectedIndex="{Binding Agerance}"
+                        SelectedItem="{Binding AgeranceSt}">
+                    </Picker>
+
+                    <Label 
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        Text="Race?">
+                    </Label>
+                    <Picker 
+                        Grid.ColumnSpan="2"
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        x:Name="race" 
+                        SelectedIndex="{Binding Race}"
+                        SelectedItem="{Binding RaceSt}">
+                    </Picker>
+
+                    <Button
+                        Grid.ColumnSpan="3"
+                        Grid.Column="0"
+                        Grid.Row="3"
+                        TextColor="Black"
+                        Text="Enter weight and height">
+                    </Button>
+
+                    <Label 
+                        Grid.Column="0"
+                        Grid.Row="4"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        Text="Weigth">
+                    </Label>
+                    <Entry
+                        Grid.ColumnSpan="2"
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        HorizontalOptions="FillAndExpand"
+                        x:Name="dat1" 
+                        Keyboard="Numeric" 
+                        Text="{Binding Dat1}"
+                        Placeholder="waiting">
+                    </Entry>
+
+                    <Label 
+                        Grid.Column="0"
+                        Grid.Row="5"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        Text="Heigth">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="5"
+                        x:Name="dat2" 
+                        Text="{Binding Dat2}"
+                        Placeholder="waiting"
+                        Keyboard="Numeric" 
+                        HorizontalOptions="FillAndExpand">
+                    </Entry>
+                    <Entry
+                        Grid.Column="2"
+                        Grid.Row="5"
+                        x:Name="dat3" 
+                        Text="{Binding Dat3}"
+                        Placeholder="waiting"
+                        Keyboard="Numeric" 
+                        HorizontalOptions="FillAndExpand">
+                    </Entry>
+
+                    <Label 
+                        Grid.Column="0"
+                        Grid.Row="6"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        Text="Bmi?">
+                    </Label>
+                    <Picker
+                        IsEnabled="False"
+                        Grid.Column="1"
+                        Grid.Row="6"
+                        x:Name="bmi" 
+                        Title="Waiting for results" 
+                        SelectedIndex="{Binding Bmi}"
+                        SelectedItem="{Binding BmiSt}">
+                    </Picker>
+                    <Button
+                        Grid.Column="2"
+                        Grid.Row="6"
+                        TextColor="Black"
+                        Text="=">
+                    </Button>
+
+                    <Label 
+                        Grid.Column="0"
+                        Grid.Row="7"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        Text="Kidney disease?">
+                    </Label>
+                    <Picker 
+                        Grid.ColumnSpan="2"
+                        Grid.Column="1"
+                        Grid.Row="7"
+                        x:Name="kydney" 
+                        SelectedIndex="{Binding Kydney}"
+                        SelectedItem="{Binding KydneySt}">
+                    </Picker>
+
+                    <Label 
+                        Grid.Column="0"
+                        Grid.Row="8"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        Text="Smoker?">
+                    </Label>
+                    <Picker 
+                        Grid.ColumnSpan="2"
+                        Grid.Column="1"
+                        Grid.Row="8"
+                        x:Name="smoke" 
+                        SelectedIndex="{Binding Smoke}"
+                        SelectedItem="{Binding SmokeSt}">
+                    </Picker>
+
+                    <Label 
+                        Grid.Column="0"
+                        Grid.Row="9"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        Text="Diabetic?">
+                    </Label>
+                    <Picker 
+                        Grid.ColumnSpan="2"
+                        Grid.Column="1"
+                        Grid.Row="9"
+                        x:Name="diabetes" 
+                        SelectedIndex="{Binding Diabetes}"
+                        SelectedItem="{Binding DiabetesSt}">
+                    </Picker>
+
+                    <Button
+                        Grid.ColumnSpan="3"
+                        Grid.Column="0"
+                        Grid.Row="10"
+                        TextColor="Black"
+                        Text="Predict Hypclass"
+                        x:Name="btnHyp" >
+                    </Button>
+
+                    <Label 
+                        Grid.Column="0"
+                        Grid.Row="11"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        Text="Predicted">
+                    </Label>
+                    <Picker 
+                        Grid.ColumnSpan="2"
+                        Grid.Column="1"
+                        Grid.Row="11"
+                        Title="waiting"
+                        x:Name="hypclassP" 
+                        IsEnabled="False"
+                        SelectedIndex="{Binding HypclassP}"
+                        SelectedItem="{Binding HypclassPSt}">
+                    </Picker>
+
+                    <Label 
+                        Grid.Column="0"
+                        Grid.Row="12"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Start"
+                        Text="Validation?">
+                    </Label>
+                    <Picker 
+                        Grid.ColumnSpan="2"
+                        Grid.Column="1"
+                        Grid.Row="12"
+                        x:Name="hypclassV" 
+                        SelectedIndex="{Binding HypclassV}"
+                        SelectedItem="{Binding HypclassVSt}">
+                    </Picker>
+                </Grid>
+                <Entry
+                    IsEnabled="False"
+                    IsVisible="False"
+                    x:Name="btn"
+                    Text="{Binding Btn}">
+                </Entry>
+                <ActivityIndicator
+                    VerticalOptions="CenterAndExpand"
+                    x:Name="run"
+                    IsRunning="{Binding IsRunning}">
+                </ActivityIndicator>
+                <Button
+                    BackgroundColor="#00E0FF"
+                    BorderRadius="23"
+                    HeightRequest="46"
+                    Text="Save"
+                    TextColor="White"
+                    Command="{Binding SaveCommand}"
+                    IsEnabled="{Binding IsEnabled}">
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
